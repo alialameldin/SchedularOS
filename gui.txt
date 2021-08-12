@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+  
+namespace WindowsFormsApplication4
+{
+     
+    
+    public partial class Form1 : Form
+    {
+        public static System.Drawing.Color[] col = new System.Drawing.Color[5];
+        public static Panel[] panels = new Panel[5];
+        public static int u = 0;
+        public Form1()
+        {
+            InitializeComponent();
+            col[0] = Color.Pink;
+            col[1] = Color.Red;
+            col[2] = Color.Orange;
+            col[3] = Color.Black;
+            col[4] = Color.Gray;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            drawing_shape(50,0);
+            drawing_shape(55,1);
+            drawing_shape(40,2);
+            drawing_shape(40, 3);
+            drawing_shape(40, 1);
+            drawing_shape(40, 0);
+            drawing_shape(35, 4);
+        }
+
+    
+
+        void drawing_shape(int x,int index)
+        {
+           
+                panels[index] = new Panel();
+                panels[index].Name = "q" + index.ToString();
+                panels[index].Height = 50;
+                panels[index].Width = x;
+                panels[index].BackColor = col[index];
+                panels[index].Location = new System.Drawing.Point(u,100);
+                u = u + x;
+                this.Controls.Add(panels[index]);
+
+            
+
+        }
+
+
+    }
+}
